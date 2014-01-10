@@ -37,13 +37,44 @@ function csc_howto_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'body',
     'label' => 'Body',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
-      'display_summary' => TRUE,
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'test_format' => 'test_format',
+          1 => 1,
+          2 => 2,
+          3 => 3,
+          4 => 4,
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'test_format' => array(
+              'weight' => -7,
+            ),
+            1 => array(
+              'weight' => -9,
+            ),
+            2 => array(
+              'weight' => -10,
+            ),
+            3 => array(
+              'weight' => -8,
+            ),
+            4 => array(
+              'weight' => -6,
+            ),
+          ),
+        ),
+      ),
+      'display_summary' => 1,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
