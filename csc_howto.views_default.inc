@@ -51,6 +51,33 @@ function csc_howto_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Alert Date */
+  $handler->display->display_options['fields']['field_ca_date']['id'] = 'field_ca_date';
+  $handler->display->display_options['fields']['field_ca_date']['table'] = 'field_data_field_ca_date';
+  $handler->display->display_options['fields']['field_ca_date']['field'] = 'field_ca_date';
+  $handler->display->display_options['fields']['field_ca_date']['label'] = '';
+  $handler->display->display_options['fields']['field_ca_date']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_ca_date']['alter']['text'] = '<strong>Effective Date:</strong>  [field_ca_date] ';
+  $handler->display->display_options['fields']['field_ca_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ca_date']['settings'] = array(
+    'format_type' => 'csc_service_alert',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '600',
+  );
   /* Sort criterion: Content: Alert Date (field_ca_date) */
   $handler->display->display_options['sorts']['field_ca_date_value']['id'] = 'field_ca_date_value';
   $handler->display->display_options['sorts']['field_ca_date_value']['table'] = 'field_data_field_ca_date';
@@ -71,8 +98,18 @@ function csc_howto_views_default_views() {
     'csc_how_to' => 'csc_how_to',
   );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
+  /* Display: original */
+  $handler = $view->new_display('page', 'original', 'page');
+  $handler->display->display_options['path'] = 'csc/howto/test';
+
+  /* Display: prod */
+  $handler = $view->new_display('page', 'prod', 'page_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['path'] = 'csc/howto';
   $export['csc_how_to'] = $view;
 
