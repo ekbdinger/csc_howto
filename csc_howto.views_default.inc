@@ -78,6 +78,25 @@ function csc_howto_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '600',
   );
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  /* Field: Global: Contextual Links */
+  $handler->display->display_options['fields']['contextual_links']['id'] = 'contextual_links';
+  $handler->display->display_options['fields']['contextual_links']['table'] = 'views';
+  $handler->display->display_options['fields']['contextual_links']['field'] = 'contextual_links';
+  $handler->display->display_options['fields']['contextual_links']['label'] = '';
+  $handler->display->display_options['fields']['contextual_links']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['contextual_links']['fields'] = array(
+    'edit_node' => 'edit_node',
+    'title' => 0,
+    'field_ca_date' => 0,
+    'body' => 0,
+  );
   /* Sort criterion: Content: Alert Date (field_ca_date) */
   $handler->display->display_options['sorts']['field_ca_date_value']['id'] = 'field_ca_date_value';
   $handler->display->display_options['sorts']['field_ca_date_value']['table'] = 'field_data_field_ca_date';
