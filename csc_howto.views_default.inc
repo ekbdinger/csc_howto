@@ -53,7 +53,7 @@ function csc_howto_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Alert Date */
+  /* Field: Content: Effective Date */
   $handler->display->display_options['fields']['field_ca_date']['id'] = 'field_ca_date';
   $handler->display->display_options['fields']['field_ca_date']['table'] = 'field_data_field_ca_date';
   $handler->display->display_options['fields']['field_ca_date']['field'] = 'field_ca_date';
@@ -85,6 +85,12 @@ function csc_howto_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  /* Field: Content: Delete link */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['label'] = 'Delete';
+  $handler->display->display_options['fields']['delete_node']['exclude'] = TRUE;
   /* Field: Global: Contextual Links */
   $handler->display->display_options['fields']['contextual_links']['id'] = 'contextual_links';
   $handler->display->display_options['fields']['contextual_links']['table'] = 'views';
@@ -93,11 +99,12 @@ function csc_howto_views_default_views() {
   $handler->display->display_options['fields']['contextual_links']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['contextual_links']['fields'] = array(
     'edit_node' => 'edit_node',
+    'delete_node' => 'delete_node',
     'title' => 0,
     'field_ca_date' => 0,
     'body' => 0,
   );
-  /* Sort criterion: Content: Alert Date (field_ca_date) */
+  /* Sort criterion: Content: Effective Date (field_ca_date) */
   $handler->display->display_options['sorts']['field_ca_date_value']['id'] = 'field_ca_date_value';
   $handler->display->display_options['sorts']['field_ca_date_value']['table'] = 'field_data_field_ca_date';
   $handler->display->display_options['sorts']['field_ca_date_value']['field'] = 'field_ca_date_value';
